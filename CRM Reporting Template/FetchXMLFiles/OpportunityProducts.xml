@@ -1,0 +1,33 @@
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+  <entity name="opportunityproduct">
+    <attribute name="productid" />
+    <attribute name="priceperunit" />
+    <attribute name="quantity" />
+    <attribute name="extendedamount" />
+    <attribute name="uomid" />
+    <attribute name="opportunityproductid" />
+    <attribute name="opportunityid" />
+    <link-entity name="opportunity" from="opportunityid" to="opportunityid" link-type="inner" alias="ao">
+      <filter type="and">
+        <condition attribute="parentaccountid" operator="in">
+          <@AccountList>
+        </condition>
+      </filter>
+    </link-entity>
+    <link-entity name="product" from="productid" to="productid" visible="false" link-type="outer" alias="product">
+      <attribute name="msp_revsumcategory" />
+      <attribute name="producttypecode" />
+      <attribute name="productnumber" />
+      <attribute name="msp_productfamily" />
+      <attribute name="vendorpartnumber" />
+      <attribute name="msp_superrevsumdivision" />
+      <attribute name="msp_revsumdivision" />
+      <attribute name="msp_primaryproductcode" />
+      <attribute name="msp_model" />
+      <attribute name="vendorname" />
+      <attribute name="msp_itemname" />
+      <attribute name="msp_itemgroup" />
+      <attribute name="description" />
+    </link-entity>
+  </entity>
+</fetch>

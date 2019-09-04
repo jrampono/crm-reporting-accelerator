@@ -1,0 +1,28 @@
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+  <entity name="account">
+    <attribute name="name" />
+    <attribute name="msp_endcustomersubsegmentcode" />
+    <attribute name="ownerid" />
+    <attribute name="address1_city" />
+    <attribute name="msp_industrycode" />
+    <attribute name="msp_industryverticalcode" />
+    <attribute name="msp_endcustomersegmentcode" />
+    <attribute name="msp_parentinglevelcode" />
+    <attribute name="parentaccountid" />
+    <attribute name="msp_mstopparentid" />
+    <attribute name="msp_verticalcategorycode" />
+    <attribute name="msp_accountnumber" />
+    <attribute name="accountid" />
+    <order attribute="name" descending="false" />
+    <filter type="and">
+      <condition attribute="msp_parentinglevelcode" operator="eq" value="861980000" />
+    </filter>
+-<link-entity name="listmember" visible="false" to="accountid" from="entityid" intersect="true">
+<link-entity name="list" alias="ab" to="listid" from="listid">
+<filter type="and">
+<condition value="<@MarketingListName>" operator="eq" attribute="listname"/>
+</filter>
+</link-entity>
+</link-entity>
+  </entity>
+</fetch>
